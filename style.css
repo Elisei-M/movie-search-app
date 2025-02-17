@@ -249,3 +249,37 @@ body.dark .movie-card p {
   background-color: #e68900;
 }
 
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #f1f1f1;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #0056b3;
+}
+
+/* Dark mode Footer */
+body.dark footer {
+  background-color: #444;
+  color: #eee;
+}
+
+body.dark footer a {
+  color: #66b2ff;
+}
+
+body.dark footer a:hover {
+  color: #99ccff;
+}
+
