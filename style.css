@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f9f9f9;
   color: #333;
 }
 
@@ -15,8 +15,8 @@ body {
   margin: 2rem auto;
   padding: 1.5rem;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
 }
 
@@ -34,91 +34,147 @@ header h1 {
   font-weight: 700;
 }
 
-/* Stil pentru toate butoanele */
+/* Stil minimal pentru butoane */
 button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   font-weight: 500;
   border: none;
-  border-radius: 30px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  background: linear-gradient(45deg, #007bff, #0056b3);
+  background-color: #007bff;
   color: #fff;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+  margin: 0.2rem;
 }
 
-/* Efect de hover pentru butoane */
 button:hover {
-  background: linear-gradient(45deg, #0056b3, #003f7f);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  background-color: #0056b3;
 }
 
-/* Butoane active */
-button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-}
-
-/* Stil pentru butoanele din secțiunea de căutare și filtrare */
+/* Butoanele din secțiunea de căutare și filtre */
 .search-controls button,
 .search-controls select {
-  background: linear-gradient(45deg, #28a745, #218838);
   min-width: 120px;
 }
 
-/* Stil specific pentru butonul de Dark/Light Mode */
-#themeToggle {
-  background: linear-gradient(45deg, #ff9800, #f57c00);
+/* Grid-ul pentru filme */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
 }
 
-/* Stil pentru butonul "Load More" */
-#loadMoreBtn {
-  margin-top: 1.5rem;
-  background: linear-gradient(45deg, #17a2b8, #117a8b);
+/* Cardurile de filme */
+.movie-card {
+  background: #fafafa;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative;
 }
 
-/* Stil pentru butonul "View Favorites" */
-#viewFavoritesBtn {
-  background: linear-gradient(45deg, #6f42c1, #5936a2);
+.movie-card:hover {
+  transform: scale(1.02);
 }
 
-/* Butoanele din cardurile de filme (Details & Favorite) */
-.movie-card button.details-btn,
-.movie-card button.fav-btn {
-  margin: 0.3rem;
-  padding: 0.4rem 0.8rem;
+.movie-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.movie-card h2 {
+  font-size: 1.1rem;
+  margin: 0.5rem;
+}
+
+.movie-card p {
   font-size: 0.9rem;
-  border-radius: 20px;
-  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: #666;
+  margin: 0.5rem;
 }
 
-/* Opțional: Butonul "fav-btn" poate avea o variantă diferită dacă filmul este favorit */
-.movie-card button.fav-btn.favorited {
-  background: linear-gradient(45deg, #dc3545, #a71d2a);
+/* Modal pentru detalii */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
 }
 
-/* Dark Mode */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 6px;
+  max-width: 600px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Spinner */
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #007bff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 1rem auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mesaj de eroare */
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+/* Dark Mode Minimal */
 body.dark {
-  background-color: #333;
+  background-color: #2c2c2c;
   color: #eee;
 }
 
 body.dark .container {
-  background-color: #444;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  background-color: #3a3a3a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 body.dark input,
 body.dark select {
-  background: #666;
-  border: 1px solid #555;
+  background: #555;
+  border: 1px solid #444;
   color: #fff;
 }
 
 body.dark button {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  background-color: #0088ff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Alte stiluri rămân neschimbate pentru layout, grid etc. */
+body.dark button:hover {
+  background-color: #0066cc;
+}
+
+body.dark .modal-content {
+  background-color: #444;
+  color: #fff;
+}
