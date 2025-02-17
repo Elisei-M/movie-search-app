@@ -1,5 +1,5 @@
 // Înlocuiește YOUR_API_KEY cu cheia ta de la OMDb API
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "5f369cac";
 
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
