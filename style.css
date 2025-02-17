@@ -226,8 +226,9 @@ body.dark .modal-content {
 /* Dark Mode Movie Card Text */
 body.dark .movie-card h2,
 body.dark .movie-card p {
-  color: #fff;
+  color: #000; /* Negru */
 }
+
 
 /* Stil comun pentru butoanele Details și Favorite */
 .movie-card button.details-btn,
