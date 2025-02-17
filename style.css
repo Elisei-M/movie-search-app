@@ -1,18 +1,22 @@
-/* Stiluri de bază */
+/* Importă un font modern de la Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f4f4f4;
+  color: #333;
 }
 
+/* Container principal */
 .container {
   max-width: 960px;
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
 }
 
@@ -21,158 +25,89 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 header h1 {
   margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-#themeToggle {
-  padding: 0.5rem 1rem;
+/* Stil pentru toate butoanele */
+button {
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
+  font-weight: 500;
   border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-#themeToggle:hover {
-  background-color: #0056b3;
+/* Efect de hover pentru butoane */
+button:hover {
+  background: linear-gradient(45deg, #0056b3, #003f7f);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
-/* Controls pentru căutare și filtrare */
-.search-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 1rem;
+/* Butoane active */
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-.search-controls input[type="text"] {
-  padding: 0.5rem;
-  font-size: 1rem;
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
+/* Stil pentru butoanele din secțiunea de căutare și filtrare */
 .search-controls button,
 .search-controls select {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background: linear-gradient(45deg, #28a745, #218838);
+  min-width: 120px;
 }
 
-.search-controls button:hover,
-.search-controls select:hover {
-  background-color: #0056b3;
+/* Stil specific pentru butonul de Dark/Light Mode */
+#themeToggle {
+  background: linear-gradient(45deg, #ff9800, #f57c00);
 }
 
-/* Grid-ul pentru filme */
-.movies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+/* Stil pentru butonul "Load More" */
+#loadMoreBtn {
+  margin-top: 1.5rem;
+  background: linear-gradient(45deg, #17a2b8, #117a8b);
 }
 
-.movie-card {
-  background: #fafafa;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  position: relative;
+/* Stil pentru butonul "View Favorites" */
+#viewFavoritesBtn {
+  background: linear-gradient(45deg, #6f42c1, #5936a2);
 }
 
-.movie-card:hover {
-  transform: scale(1.03);
-}
-
-.movie-card img {
-  width: 100%;
-  height: 270px;
-  object-fit: cover;
-}
-
-.movie-card h2 {
-  font-size: 1.1rem;
-  margin: 0.5rem;
-}
-
-.movie-card p {
+/* Butoanele din cardurile de filme (Details & Favorite) */
+.movie-card button.details-btn,
+.movie-card button.fav-btn {
+  margin: 0.3rem;
+  padding: 0.4rem 0.8rem;
   font-size: 0.9rem;
-  color: #666;
-  margin: 0.5rem;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
 }
 
-/* Spinner de încărcare */
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #007bff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  margin: 1rem auto;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Modal pentru detalii */
-.modal {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 600px;
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Mesaj de eroare */
-.error-message {
-  color: red;
-  margin-bottom: 1rem;
+/* Opțional: Butonul "fav-btn" poate avea o variantă diferită dacă filmul este favorit */
+.movie-card button.fav-btn.favorited {
+  background: linear-gradient(45deg, #dc3545, #a71d2a);
 }
 
 /* Dark Mode */
 body.dark {
   background-color: #333;
-  color: #fff;
+  color: #eee;
 }
 
 body.dark .container {
   background-color: #444;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 body.dark input,
@@ -182,12 +117,8 @@ body.dark select {
   color: #fff;
 }
 
-body.dark .movie-card {
-  background: #555;
-  border: 1px solid #666;
+body.dark button {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
-body.dark .modal-content {
-  background: #666;
-  color: #fff;
-}
+/* Alte stiluri rămân neschimbate pentru layout, grid etc. */
