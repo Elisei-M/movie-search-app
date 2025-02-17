@@ -1,39 +1,4 @@
-/* Importă fontul Roboto */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-/* Container principal */
-.container {
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #fff;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-/* Search controls container */
+/* Stiluri pentru elementele din search-controls */
 .search-controls {
   display: flex;
   flex-wrap: wrap;
@@ -42,165 +7,27 @@ header h1 {
   margin-bottom: 1rem;
 }
 
-/* Styling pentru input și select din search-controls */
 .search-controls input[type="text"],
-.search-controls select {
-  padding: 0.6rem;
+.search-controls select,
+.search-controls button {
+  padding: 0.6rem 1rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  height: 42px; /* Dimensiune uniformă */
+  box-sizing: border-box;
+  margin: 0.2rem;
 }
 
-/* Styling pentru butoanele din search-controls */
+/* Stiluri pentru butoanele din search-controls */
 .search-controls button {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   background-color: #007bff;
   color: #fff;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .search-controls button:hover {
   background-color: #0056b3;
-}
-
-/* Grid-ul pentru cardurile de filme */
-.movies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Cardurile de film */
-.movie-card {
-  background: #fafafa;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.movie-card:hover {
-  transform: scale(1.02);
-}
-
-.movie-card img {
-  width: 100%;
-  height: 270px;
-  object-fit: cover;
-}
-
-.movie-card h2 {
-  font-size: 1.1rem;
-  margin: 0.5rem;
-}
-
-.movie-card p {
-  font-size: 0.9rem;
-  color: #666;
-  margin: 0.5rem;
-}
-
-/* Modal pentru detalii */
-.modal {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 6px;
-  max-width: 600px;
-  width: 100%;
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Spinner */
-.spinner {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #007bff;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin: 1rem auto;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Mesaj de eroare */
-.error-message {
-  color: red;
-  margin-bottom: 1rem;
-}
-
-/* Butonul Load More */
-#loadMoreBtn {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #17a2b8;
-  color: #fff;
-  transition: background-color 0.3s ease;
-}
-
-#loadMoreBtn:hover {
-  background-color: #117a8b;
-}
-
-/* Dark Mode */
-body.dark {
-  background-color: #2c2c2c;
-  color: #eee;
-}
-
-body.dark .container {
-  background-color: #3a3a3a;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
-
-body.dark input,
-body.dark select {
-  background: #555;
-  border: 1px solid #444;
-  color: #fff;
-}
-
-body.dark button {
-  background-color: #0088ff;
-}
-
-body.dark button:hover {
-  background-color: #0066cc;
-}
-
-body.dark .modal-content {
-  background-color: #444;
-  color: #fff;
 }
