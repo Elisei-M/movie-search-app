@@ -16,26 +16,18 @@ body {
   text-align: center;
 }
 
-h1 {
-  margin-bottom: 1rem;
-}
-
-.search-section {
+/* Header */
+header {
   display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-input[type="text"] {
-  width: 60%;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+header h1 {
+  margin: 0;
 }
 
-button {
+#themeToggle {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border: none;
@@ -46,12 +38,46 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+#themeToggle:hover {
   background-color: #0056b3;
 }
 
-/* Secțiunea cu filme */
-#movies {
+/* Controls pentru căutare și filtrare */
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.search-controls input[type="text"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-controls button,
+.search-controls select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-controls button:hover,
+.search-controls select:hover {
+  background-color: #0056b3;
+}
+
+/* Grid-ul pentru filme */
+.movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
@@ -63,6 +89,7 @@ button:hover {
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
+  position: relative;
 }
 
 .movie-card:hover {
@@ -77,12 +104,90 @@ button:hover {
 
 .movie-card h2 {
   font-size: 1.1rem;
-  margin: 0.5rem 0;
-  padding: 0 0.5rem;
+  margin: 0.5rem;
 }
 
 .movie-card p {
   font-size: 0.9rem;
   color: #666;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem;
+}
+
+/* Spinner de încărcare */
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #007bff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 1rem auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Modal pentru detalii */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Mesaj de eroare */
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark .container {
+  background-color: #444;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+body.dark input,
+body.dark select {
+  background: #666;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+body.dark .movie-card {
+  background: #555;
+  border: 1px solid #666;
+}
+
+body.dark .modal-content {
+  background: #666;
+  color: #fff;
 }
